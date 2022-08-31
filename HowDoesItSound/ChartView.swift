@@ -29,6 +29,11 @@ struct ChartView: View {
                     RoundedRectangle(cornerRadius: 2.0)
                         .frame(width: 250 * observer.topResults[index].confidence, height: 20, alignment: .center)
                         .animation(.linear, value: observer.topResults[index].confidence)
+                    RoundedRectangle(cornerRadius: 2.0)
+                        .fill(.gray)
+                        .frame(width: 250 * (1 - observer.topResults[index].confidence), height: 20, alignment: .center)
+                        .animation(.linear, value: observer.topResults[index].confidence)
+                        
                     Spacer()
 
                 }
