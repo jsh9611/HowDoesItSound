@@ -17,10 +17,10 @@ class AudioStreamObserver: NSObject, SNResultsObserving, ObservableObject {
         guard let result = result as? SNClassificationResult else { return }
         //Takes only the sound with the highest confidence level
         guard let classification = result.classifications.first else { return }
-        print("Classified Sound: \(classification.identifier)")
+
         DispatchQueue.main.async {
             self.currentSound = classification.identifier
-            self.topResults = Array(result.classifications[0..<13])
+            self.topResults = Array(result.classifications[0..<12])
             for _ in 0..<8 {
                 let _ = self.topResults.popLast()
             }
