@@ -4,13 +4,19 @@
 //
 //  Created by SeongHoon Jang on 2022/08/26.
 //
+/* 참고자료
+ Data:
+ https://www.kaggle.com/datasets/dejolilandry/asvpesdspeech-nonspeech-emotional-utterances
+ CoreML:
+ https://github.com/simgio99/envsoundclassifier/tree/main/envsoundclassifier
+ https://github.com/martinmitrevski/MusicInstruments
+ MicrophoneMonitor:
+ https://github.com/bbaars/SwiftUI-Sound-Visualizer
+ PlayButton:
+ https://www.youtube.com/watch?v=tywgjLMbd6I
+ **/
 
 import SwiftUI
-
-/// Source
-/// CoreML: https://github.com/martinmitrevski/MusicInstruments
-/// MicrophoneMonitor: https://github.com/bbaars/SwiftUI-Sound-Visualizer
-/// PlayButton: https://www.youtube.com/watch?v=tywgjLMbd6I
 
 struct ContentView: View {
     
@@ -24,25 +30,22 @@ struct ContentView: View {
         monitor = MicrophoneMonitor(numberOfSamples: 1)
         streamManager = AudioStreamManager()
         streamManager.resultObservation(with: observer)
-        
-
     }
+    
     var body: some View {
         VStack {
             Spacer()
             VStack {
-                Text(observer.currentSound)
-                Text("\(observer.topResults.first?.confidence ?? 0)")
+                Text(emotionalSoundToEmoji(_:observer.currentSound))
+                    .font(.title)
             }.padding()
             
-                ChartView(observer: observer)
+            ChartView(observer: observer)
+                .padding(.bottom, 60)
             
-            Spacer()
-            
-            HStack {
-                ListenButton(monitor: monitor, streamManager: streamManager)
-            }
-            
+            ListenButton(monitor: monitor, streamManager: streamManager)
+                .padding(.bottom, 50)
+
         }
     }
 }
