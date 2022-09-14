@@ -19,6 +19,18 @@
 
 <br/>
 
+## 🎲Model
+
+**Sound Classification - Create ML**
+
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/57349859/190106030-8d16abf9-f117-428a-a53a-8402e4ad734a.png">
+
+- Categorize emotions into **12 labels**
+- Each items consists of a **short voice file**
+- [Data](https://www.kaggle.com/datasets/dejolilandry/asvpesdspeech-nonspeech-emotional-utterances)
+
+<br/>
+
 ## 🔨Features
 
 - 디바이스의 마이크로부터 음성을 받아옵니다.
